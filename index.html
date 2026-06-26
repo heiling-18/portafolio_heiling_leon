@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Heiling Leon — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/projects.css">
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="loader-logo">HL.dev</div>
+  <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+  <div class="loader-text" data-i18n="loader_text">Cargando portafolio...</div>
+</div>
+
+<!-- PARTICLES -->
+<canvas id="particles"></canvas>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">HL.dev</a>
+  <ul class="nav-links">
+    <li><a href="#sobre-mi"  data-i18n="nav_about">Sobre mí</a></li>
+    <li><a href="#habilidades" data-i18n="nav_skills">Skills</a></li>
+    <li><a href="#proyectos" data-i18n="nav_projects">Proyectos</a></li>
+    <li><a href="#educacion" data-i18n="nav_education">Educación</a></li>
+    <li><a href="#contacto"  data-i18n="nav_contact">Contacto</a></li>
+  </ul>
+  <div class="nav-controls">
+    <button class="ctrl-btn" id="theme-btn" onclick="toggleTheme()" title="Toggle theme">☀️</button>
+    <button class="ctrl-btn" id="lang-btn"  onclick="toggleLang()"  title="Toggle language">EN</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-tag">Desarrolladora de Software</div>
+      <h1 class="hero-name">Heiling<br><span>Leon Bernal</span></h1>
+      <p class="hero-role"><span id="typed-text"></span><span class="cursor"></span></p>
+      <p class="hero-desc" data-i18n="hero_desc">Desarrolladora orientada a crear herramientas digitales simples, eficientes y con propósito. Me inspira convertir necesidades reales en código útil.</p>
+      <div class="hero-btns">
+        <a href="#proyectos" class="btn-primary" data-i18n="hero_btn1">Ver proyectos</a>
+        <a href="#contacto"  class="btn-secondary" data-i18n="hero_btn2">Contáctame</a>
+      </div>
+    </div>
+    <div class="hero-photo-wrap">
+      <div class="hero-photo-ring">
+        <img src="image/imagen.jpg" alt="Heiling Leon" class="hero-photo" onerror="this.parentElement.innerHTML='<span style=\'font-size:3rem;font-weight:700;color:#fff;\'>HG</span>'">
+      </div>
+      <div class="hero-photo-badge">Dev Junior · Sistemas</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SOBRE MI -->
+<section id="sobre-mi">
+  <div class="reveal">
+    <div class="section-label" data-i18n="about_label">01 — Sobre mí</div>
+    <h2 class="section-title" data-i18n="about_title">¿Quién soy?</h2>
+  </div>
+
+  <!-- Fila superior: foto + info + stats -->
+  <div class="about-top reveal">
+    <div class="about-photo-col">
+      <div class="about-photo-ring">
+        <img src="image/imagen.jpg" alt="Heiling Leon" onerror="this.parentElement.innerHTML='<span style=&quot;font-size:2.5rem;font-weight:700;color:#fff;&quot;>HG</span>'">
+      </div>
+      <label class="avatar-upload-btn" title="Cambiar foto">
+        📷 Cambiar foto
+        <input type="file" id="avatar-input" accept="image/*">
+      </label>
+    </div>
+
+    <div class="about-info-col">
+      <div class="about-name-block">
+        <div class="about-fullname">Heiling Gisselle Leon Bernal</div>
+        <div class="about-subrole">Desarrolladora Junior en Formación · <span class="perfil-disponible">● Disponible</span></div>
+        <a href="https://github.com/heiling-18" target="_blank" class="about-github-link">🐙 @heiling-18</a>
+      </div>
+
+      <p data-i18n="about_p1">Soy <strong>Heiling Gisselle Leon Bernal</strong>, estudiante de ingeniería de sistemas con enfoque en desarrollo de software y programación.</p>
+      <p data-i18n="about_p2">Me apasiona aprender nuevas tecnologías y aplicarlas para resolver problemas reales. Disfruto construir desde cero, tanto en el frontend como explorando bases de datos y lógica backend.</p>
+      <p data-i18n="about_p3">Actualmente profundizo mis conocimientos en <strong>Inteligencia Artificial, testing de prompts y automatización</strong>. Busco siempre proyectos que me reten a crecer.</p>
+
+      <div class="about-stats-row">
+        <div class="about-stat"><span>6+</span><span data-i18n="about_stat1">Tecnologías</span></div>
+        <div class="about-stat"><span>5+</span><span data-i18n="about_stat2">Proyectos</span></div>
+        <div class="about-stat"><span>100%</span><span data-i18n="about_stat3">Dedicación</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Fila info cards -->
+  <div class="about-cards-row reveal">
+    <div class="perfil-info-card"><div class="perfil-info-label">📍 UBICACIÓN</div><div class="perfil-info-value">Floridablanca, Santander</div></div>
+    <div class="perfil-info-card"><div class="perfil-info-label">🎓 FORMACIÓN</div><div class="perfil-info-value">Técnico en Programación Avanzada</div></div>
+    <div class="perfil-info-card"><div class="perfil-info-label">🌐 IDIOMAS</div><div class="perfil-info-value">ES (nativo) / EN (A2)</div></div>
+    <div class="perfil-info-card"><div class="perfil-info-label">🛠️ STACK</div><div class="perfil-info-value">Python · JS · HTML · SQL · Git</div></div>
+  </div>
+
+  <!-- Fila competencias + intereses + CV -->
+  <div class="about-bottom-row reveal">
+    <div class="perfil-competencias-card">
+      <div class="perfil-info-label">⚡ COMPETENCIAS</div>
+      <div class="perfil-competencias">
+        <span class="comp-tag">Liderazgo</span><span class="comp-tag">Empatía</span>
+        <span class="comp-tag">Disciplina</span><span class="comp-tag">Adaptabilidad</span>
+        <span class="comp-tag">Proactividad</span><span class="comp-tag">Comunicación</span>
+        
+      </div>
+    </div>
+
+    <div class="about-right-col">
+      <div class="perfil-intereses-card">
+        <div class="perfil-info-label">🎯 INTERESES</div>
+        <div class="perfil-intereses-grid">
+          <div class="interes-item"><span>📷</span><div><div class="interes-name">fotografia</div><div class="interes-sub"> Casual / Diseño</div></div></div>
+          <div class="interes-item"><span>🎵</span><div><div class="interes-name">Música</div><div class="interes-sub">Pop / baladas</div></div></div>
+          <div class="interes-item"><span>📚</span><div><div class="interes-name">Lectura</div><div class="interes-sub">romance / Fantasía /</div></div></div>
+          <div class="interes-item"><span>🚀</span><div><div class="interes-name">Tecnología</div><div class="interes-sub">IA / Desarrollo web</div></div></div>
+          <div class="interes-item"><span>🌱</span><div><div class="interes-name">Agropecuaria</div><div class="interes-sub">pecuaria / agricultura </div></div></div>
+           <div class="interes-item"><span>📈</span><div><div class="interes-name">Emprendimiento</div><div class="interes-sub">Innovación / Administración </div></div></div>
+
+        </div>
+      </div>
+
+      <a href="cv.pdf" download="CV_Heiling_Leon.pdf" class="perfil-cv-card">
+        <div class="perfil-cv-left">
+          <span class="perfil-cv-icon">⬇</span>
+          <span class="perfil-cv-text">Descargar CV</span>
+        </div>
+        <span class="tag">PDF</span>
+      </a>
+    </div>
+  </div>
+
+</section>
+
+<div class="divider"></div>
+
+<!-- HABILIDADES -->
+<section id="habilidades">
+  <div class="reveal">
+    <div class="section-label" data-i18n="skills_label">02 — Habilidades</div>
+    <h2 class="section-title" data-i18n="skills_title">Stack tecnológico</h2>
+  </div>
+  <div class="skills-grid reveal">
+    <div class="skill-card"><div class="skill-icon">🌐</div><div class="skill-name">HTML</div><div class="skill-bar-wrap"><div class="skill-bar" data-width="90"></div></div></div>
+    <div class="skill-card"><div class="skill-icon">🎨</div><div class="skill-name">CSS</div><div class="skill-bar-wrap"><div class="skill-bar" data-width="85"></div></div></div>
+    <div class="skill-card"><div class="skill-icon">⚡</div><div class="skill-name">JavaScript</div><div class="skill-bar-wrap"><div class="skill-bar" data-width="75"></div></div></div>
+    <div class="skill-card"><div class="skill-icon">🐍</div><div class="skill-name">Python</div><div class="skill-bar-wrap"><div class="skill-bar" data-width="70"></div></div></div>
+    <div class="skill-card"><div class="skill-icon">🗄️</div><div class="skill-name">SQL</div><div class="skill-bar-wrap"><div class="skill-bar" data-width="72"></div></div></div>
+    <div class="skill-card"><div class="skill-icon">🔧</div><div class="skill-name">Git</div><div class="skill-bar-wrap"><div class="skill-bar" data-width="78"></div></div></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PROYECTOS -->
+<section id="proyectos">
+  <div class="reveal">
+    <div class="section-label" data-i18n="projects_label">03 — Proyectos</div>
+    <h2 class="section-title" data-i18n="projects_title">Lo que he construido</h2>
+  </div>
+  <div class="projects-grid reveal">
+
+    <!-- Hotel El Rincon Del Carmen -->
+    <div class="project-card">
+      <div class="project-top">
+        <div class="project-icon">🏨</div>
+        <div class="project-links">
+          <a href="https://github.com/heiling-18/proyecto_Java_script_Hotel" target="_blank" class="project-link" title="GitHub">↗</a>
+        </div>
+      </div>
+      <div class="project-title">Hotel El Rincón del Carmen</div>
+      <div class="project-desc">Sitio web interactivo para un hotel desarrollado con JavaScript. Incluye sistema de reservas, catálogo de habitaciones y formularios de contacto con validación en el frontend.</div>
+      <div class="project-tags"><span class="tag">JavaScript</span><span class="tag">HTML</span><span class="tag">CSS</span></div>
+    </div>
+
+    <!-- Campus Shop -->
+    <div class="project-card">
+      <div class="project-top">
+        <div class="project-icon">🛍️</div>
+        <div class="project-links">
+          <a href="https://github.com/heiling-18/campus-Shop" target="_blank" class="project-link" title="GitHub">↗</a>
+        </div>
+      </div>
+      <div class="project-title">Campus Shop</div>
+      <div class="project-desc">Tienda en línea para estudiantes universitarios con catálogo de productos (tecnología, estudio, comida, ropa), carrito de compras, checkout y gestión de perfil. Desarrollada en HTML y CSS puro con múltiples vistas.</div>
+      <div class="project-tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">UI/UX</span></div>
+    </div>
+
+    <!-- Proyecto Python -->
+    <div class="project-card">
+      <div class="project-top">
+        <div class="project-icon">🐍</div>
+        <div class="project-links">
+          <a href="https://github.com/heiling-18/Proyecto_Python_LeonHeiling_SierraDaniel" target="_blank" class="project-link" title="GitHub">↗</a>
+        </div>
+      </div>
+      <div class="project-title">Proyecto Python</div>
+      <div class="project-desc">Aplicación desarrollada en Python en colaboración con Daniel Sierra. Proyecto académico que aplica fundamentos de programación, estructuras de datos y lógica de negocio.</div>
+      <div class="project-tags"><span class="tag">Python</span><span class="tag">Colaborativo</span></div>
+    </div>
+
+    <!-- API Colombia -->
+    <div class="project-card">
+      <div class="project-top">
+        <div class="project-icon">🇨🇴</div>
+        <div class="project-links">
+          <a href="https://github.com/heiling-18/heiling-leon-api-colombia" target="_blank" class="project-link" title="GitHub">↗</a>
+        </div>
+      </div>
+      <div class="project-title">API Colombia</div>
+      <div class="project-desc">Proyecto de integración y consumo de API con datos de Colombia. Consulta y visualización de información del país mediante llamadas a servicios externos.</div>
+      <div class="project-tags"><span class="tag">API REST</span><span class="tag">JavaScript</span><span class="tag">Datos</span></div>
+    </div>
+
+    <!-- Chatbot Educativo -->
+    <div class="project-card">
+      <div class="project-top">
+        <div class="project-icon">🤖</div>
+        <div class="project-links">
+          <a href="https://github.com/heiling-18/promptfoo-gemini-" target="_blank" class="project-link" title="GitHub">↗</a>
+        </div>
+      </div>
+      <div class="project-title">Chatbot Educativo — Prompt Testing</div>
+      <div class="project-desc">Sistema de evaluación automatizada de prompts para un chatbot educativo usando Promptfoo y Gemini. Incluye casos PASS/FAIL, assertions y análisis del comportamiento del modelo.</div>
+      <div class="project-tags"><span class="tag">Promptfoo</span><span class="tag">Gemini AI</span><span class="tag">YAML</span><span class="tag">QA</span></div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- EDUCACION -->
+<section id="educacion">
+  <div class="reveal">
+    <div class="section-label" data-i18n="edu_label">04 — Educación</div>
+    <h2 class="section-title" data-i18n="edu_title">Mi trayectoria</h2>
+  </div>
+  <div class="edu-timeline reveal" id="edu-timeline">
+    <!-- Filled by i18n.js -->
+    <div class="edu-item">
+      <div class="edu-dot">🎓</div>
+      <div class="edu-content">
+        <div class="edu-year">2025 — Presente</div>
+        <div class="edu-title">Bases de datos</div>
+        <div class="edu-place">Universidad — Bucaramanga, Colombia</div>
+      </div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-dot">🤖</div>
+      <div class="edu-content">
+        <div class="edu-year">2025</div>
+        <div class="edu-title">Inteligencia Artificial I</div>
+        <div class="edu-place">Prompt Testing · Gemini · Promptfoo · QA aplicado a IA</div>
+      </div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-dot">🌐</div>
+      <div class="edu-content">
+        <div class="edu-year">2025</div>
+        <div class="edu-title">Desarrollo Web Frontend</div>
+        <div class="edu-place">HTML · CSS · JavaScript · Proyectos prácticos</div>
+      </div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-dot">🐍</div>
+      <div class="edu-content">
+        <div class="edu-year">2025</div>
+        <div class="edu-title">Python & Bases de Datos</div>
+        <div class="edu-place">Python · SQL · Gestión de datos · Proyectos colaborativos</div>
+      </div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-dot">⚡</div>
+      <div class="edu-content">
+        <div class="edu-year">2025</div>
+        <div class="edu-title">Fundamentos de Programación</div>
+        <div class="edu-place">Lógica · Algoritmos · Estructuras de datos</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONTACTO -->
+<section id="contacto">
+  <div class="reveal">
+    <div class="section-label" data-i18n="contact_label">05 — Contacto</div>
+    <h2 class="section-title" data-i18n="contact_title">Hablemos</h2>
+  </div>
+  <div class="contact-grid reveal">
+    <div class="contact-info">
+      <h3 data-i18n="contact_h3">¿Tienes un proyecto en mente?</h3>
+      <p data-i18n="contact_p">Estoy disponible para colaboraciones, prácticas o simplemente para conectar. No dudes en escribirme.</p>
+      <div class="contact-links">
+        <a href="https://github.com/heiling-18" target="_blank" class="contact-link">
+          <div class="contact-link-icon">🐙</div> github.com/heiling-18
+        </a>
+        <a href="mailto:heilinggisselleleonbernal@gmail.com" class="contact-link">
+          <div class="contact-link-icon">📧</div> heilinggisselleleonbernal@gmail.com
+        </a>
+      </div>
+    </div>
+    <form class="contact-form" onsubmit="handleSubmit(event)">
+      <div class="form-group">
+        <label data-i18n="form_name">Nombre</label>
+        <input type="text" data-i18n="form_ph_name" placeholder="Tu nombre" required>
+      </div>
+      <div class="form-group">
+        <label data-i18n="form_email">Email</label>
+        <input type="email" data-i18n="form_ph_email" placeholder="tu@email.com" required>
+      </div>
+      <div class="form-group">
+        <label data-i18n="form_msg">Mensaje</label>
+        <textarea data-i18n="form_ph_msg" placeholder="Cuéntame sobre tu proyecto..." required></textarea>
+      </div>
+      <button type="submit" class="btn-primary" data-i18n="form_btn">Enviar mensaje →</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <p><span data-i18n="footer">Diseñado y construido por</span> <span>Heiling Leon Bernal</span> · 2025</p>
+</footer>
+
+<!-- SCRIPTS (order matters) -->
+<script src="js/theme.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/particles.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+</html>

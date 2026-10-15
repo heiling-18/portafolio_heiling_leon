@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reporte de Ocupación · El Rincón del Carmen</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/ocupaciones.css" />
+  <script src="js/app.js" defer></script>
+  <script src="js/auth.js?v=3" defer></script>
+  <script src="js/luxe-pass.js" defer></script>
+  <script src="js/ocupacion.js" defer></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="index.html">El Rincón del Carmen</a>
+    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav">
+      <a href="index.html">Inicio</a>
+      <a href="reservas.html">Reservas</a>
+      <a href="contacto.html">Contacto</a>
+      <a href="ocupacion.html" data-active="true">Reportes</a>
+    </nav>
+    <div class="auth">
+      <a class="btn btn-login" href="#" id="btnLogin">Iniciar Sesión</a>
+    </div>
+  </div>
+</header>
+
+<main class="reporte-page">
+  <div class="container">
+    <h1>Reporte de Ocupación y Cancelaciones</h1>
+    <p class="sub">Seleccione un año para ver el detalle mensual del hotel.</p>
+
+    <div class="filtro">
+      <select id="selectAnio"></select>
+      <button id="btnBuscar" type="button">Ver reporte</button>
+    </div>
+
+    <div class="resumen">
+      <div class="res-card">
+        <div class="num" id="totalOc">—</div>
+        <div class="lbl">Reservas</div>
+      </div>
+      <div class="res-card can">
+        <div class="num" id="totalCan">—</div>
+        <div class="lbl">Cancelaciones</div>
+      </div>
+    </div>
+
+    <div id="tabla" hidden>
+      <h2 id="yearTitle"></h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Mes</th>
+            <th>Ocupación</th>
+            <th>Cancelaciones</th>
+          </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+  </div>
+</main>
+
+</body>
+</html>

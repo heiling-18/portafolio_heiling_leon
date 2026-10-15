@@ -1,346 +1,500 @@
 <!DOCTYPE html>
 <html lang="es" data-theme="dark">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Heiling Leon — Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/main.css">
-<link rel="stylesheet" href="css/projects.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portafolio profesional de Heiling Gisselle León Bernal — Desarrolladora de Software Junior especializada en Java, Python, JavaScript/Next.js, SQL y Automatización con IA.">
+  <title>Heiling León Bernal — Desarrolladora de Software | Portafolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/projects.css">
 </head>
 <body>
 
+<!-- SCROLL PROGRESS INDICATOR -->
+<div id="progress" aria-hidden="true"></div>
+
 <!-- LOADER -->
 <div id="loader">
-  <div class="loader-logo">HL.dev</div>
+  <div class="loader-logo">HL<span>.dev</span></div>
   <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
-  <div class="loader-text" data-i18n="loader_text">Cargando portafolio...</div>
+  <div class="loader-text" data-i18n="loader_text">Inicializando portafolio...</div>
 </div>
 
-<!-- PARTICLES -->
-<canvas id="particles"></canvas>
+<!-- BOOM BACKGROUND: ARCHITECTURAL CYBER GRID + AURORA BEAMS + INTERACTIVE NEBULA CANVAS -->
+<div class="bg-stage" aria-hidden="true">
+  <div class="cyber-grid-bg"></div>
+  <div class="aurora-beam beam-1"></div>
+  <div class="aurora-beam beam-2"></div>
+  <div class="aurora-beam beam-3"></div>
+  <div class="bg-vignette"></div>
+</div>
+<canvas id="particles" aria-hidden="true"></canvas>
 
-<!-- NAV -->
-<nav>
-  <a href="#hero" class="nav-logo">HL.dev</a>
-  <ul class="nav-links">
-    <li><a href="#sobre-mi"  data-i18n="nav_about">Sobre mí</a></li>
-    <li><a href="#habilidades" data-i18n="nav_skills">Skills</a></li>
+<!-- NAVBAR -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">
+    <span class="logo-bracket">&lt;</span>HL<span class="logo-dot">.dev</span><span class="logo-bracket">/&gt;</span>
+  </a>
+
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#sobre-mi" data-i18n="nav_about">Sobre mí</a></li>
+    <li><a href="#servicios" data-i18n="nav_services">Qué ofrezco</a></li>
+    <li><a href="#habilidades" data-i18n="nav_skills">Stack</a></li>
     <li><a href="#proyectos" data-i18n="nav_projects">Proyectos</a></li>
-    <li><a href="#educacion" data-i18n="nav_education">Educación</a></li>
-    <li><a href="#contacto"  data-i18n="nav_contact">Contacto</a></li>
+    <li><a href="#educacion" data-i18n="nav_education">Trayectoria</a></li>
+    <li><a href="#contacto" data-i18n="nav_contact">Contacto</a></li>
   </ul>
+
   <div class="nav-controls">
-    <button class="ctrl-btn" id="theme-btn" onclick="toggleTheme()" title="Toggle theme">☀️</button>
-    <button class="ctrl-btn" id="lang-btn"  onclick="toggleLang()"  title="Toggle language">EN</button>
+    <a href="cv.pdf" download="CV_Heiling_Leon_Bernal.pdf" class="nav-cv-btn">
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      <span>CV</span>
+    </a>
+    <button class="ctrl-btn" id="theme-btn" onclick="toggleTheme()" title="Cambiar tema" aria-label="Cambiar tema"></button>
+    <button class="ctrl-btn" id="lang-btn" onclick="toggleLang()" title="Cambiar idioma" aria-label="Cambiar idioma">EN</button>
+    <button class="ctrl-btn mobile-menu-btn" id="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Menú">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- HERO (ÚNICA FOTO DEL PORTAFOLIO) -->
 <section id="hero">
   <div class="hero-inner">
     <div class="hero-content">
-      <div class="hero-tag">Desarrolladora de Software</div>
-      <h1 class="hero-name">Heiling<br><span>Leon Bernal</span></h1>
-      <p class="hero-role"><span id="typed-text"></span><span class="cursor"></span></p>
-      <p class="hero-desc" data-i18n="hero_desc">Desarrolladora orientada a crear herramientas digitales simples, eficientes y con propósito. Me inspira convertir necesidades reales en código útil.</p>
+      <div class="hero-status-pill">
+        <span class="status-dot"></span>
+        <span data-i18n="hero_badge">Disponible para Prácticas y Proyectos · Floridablanca / Remoto</span>
+      </div>
+
+      <div class="hero-tag" data-i18n="hero_tag">Desarrolladora de Software Junior</div>
+
+      <h1 class="hero-name">
+        Heiling Gisselle<br>
+        <span>León Bernal</span>
+      </h1>
+
+      <p class="hero-role">
+        <span class="role-prefix">&gt;_</span>
+        <span id="typed-text"></span><span class="cursor"></span>
+      </p>
+
+      <p class="hero-desc" data-i18n="hero_desc">
+        Transformo necesidades reales en software bien estructurado, escalable y fácil de usar. Combino desarrollo Full Stack (Next.js, JavaScript), lógica Backend (Java, Python, SQL) y automatización inteligente con IA.
+      </p>
+
       <div class="hero-btns">
-        <a href="#proyectos" class="btn-primary" data-i18n="hero_btn1">Ver proyectos</a>
-        <a href="#contacto"  class="btn-secondary" data-i18n="hero_btn2">Contáctame</a>
+        <a href="#proyectos" class="btn-primary">
+          <span data-i18n="hero_btn1">Explorar proyectos</span>
+          <svg class="btn-arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <a href="cv.pdf" download="CV_Heiling_Leon_Bernal.pdf" class="btn-secondary">
+          <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <span data-i18n="hero_btn_cv">Descargar CV</span>
+        </a>
+        <a href="https://wa.me/573107954197?text=Hola%20Heiling,%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20contactarte." target="_blank" rel="noopener" class="btn-ghost">
+          <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          <span data-i18n="hero_btn2">WhatsApp</span>
+        </a>
+      </div>
+
+      <div class="hero-quick-metrics">
+        <div class="hero-metric">
+          <strong>6+</strong>
+          <span data-i18n="hero_m1">Proyectos en Producción y Académicos</span>
+        </div>
+        <div class="hero-metric-sep"></div>
+        <div class="hero-metric">
+          <strong>8+</strong>
+          <span data-i18n="hero_m2">Tecnologías Dominadas</span>
+        </div>
+        <div class="hero-metric-sep"></div>
+        <div class="hero-metric">
+          <strong>Full Stack</strong>
+          <span data-i18n="hero_m3">Web · Backend · IA</span>
+        </div>
       </div>
     </div>
+
     <div class="hero-photo-wrap">
-      <div class="hero-photo-ring">
-        <img src="image/imagen.jpg" alt="Heiling Leon" class="hero-photo" onerror="this.parentElement.innerHTML='<span style=\'font-size:3rem;font-weight:700;color:#fff;\'>HG</span>'">
+      <div class="hero-orbit">
+        <div class="floating-chip chip-top">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="var(--cyan)" stroke-width="2.2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          <span>Java · MVC · SQL</span>
+        </div>
+        <div class="floating-chip chip-right">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="var(--purple-light)" stroke-width="2.2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          <span>Next.js · TypeScript</span>
+        </div>
+        <div class="floating-chip chip-bottom">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#34d399" stroke-width="2.2"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4"/></svg>
+          <span>n8n · Gemini AI</span>
+        </div>
+        <div class="hero-photo-ring">
+          <img src="image/imagen.jpg" alt="Heiling Gisselle León Bernal" class="hero-photo" fetchpriority="high" onerror="this.parentElement.innerHTML='<span style=\'font-size:3rem;font-weight:700;color:#fff;\'>HL</span>'">
+        </div>
       </div>
-      <div class="hero-photo-badge">Dev Junior · Sistemas</div>
+      <div class="hero-photo-badge">
+        <span class="badge-code">&lt;/&gt;</span>
+        <span data-i18n="hero_photo_badge">Programación Avanzada · Campuslands</span>
+      </div>
     </div>
   </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- SOBRE MI -->
+<!-- 01 — SOBRE MÍ (SIN SEGUNDA IMAGEN) -->
 <section id="sobre-mi">
   <div class="reveal">
     <div class="section-label" data-i18n="about_label">01 — Sobre mí</div>
-    <h2 class="section-title" data-i18n="about_title">¿Quién soy?</h2>
+    <h2 class="section-title" data-i18n="about_title">Perfil profesional y esencia</h2>
   </div>
 
-  <!-- Fila superior: foto + info + stats -->
-  <div class="about-top reveal">
-    <div class="about-photo-col">
-      <div class="about-photo-ring">
-        <img src="image/imagen.jpg" alt="Heiling Leon" onerror="this.parentElement.innerHTML='<span style=&quot;font-size:2.5rem;font-weight:700;color:#fff;&quot;>HG</span>'">
-      </div>
-      <label class="avatar-upload-btn" title="Cambiar foto">
-        📷 Cambiar foto
-        <input type="file" id="avatar-input" accept="image/*">
-      </label>
-    </div>
-
-    <div class="about-info-col">
-      <div class="about-name-block">
-        <div class="about-fullname">Heiling Gisselle Leon Bernal</div>
-        <div class="about-subrole">Desarrolladora Junior en Formación · <span class="perfil-disponible">● Disponible</span></div>
-        <a href="https://github.com/heiling-18" target="_blank" class="about-github-link">🐙 @heiling-18</a>
-      </div>
-
-      <p data-i18n="about_p1">Soy <strong>Heiling Gisselle Leon Bernal</strong>, estudiante de ingeniería de sistemas con enfoque en desarrollo de software y programación.</p>
-      <p data-i18n="about_p2">Me apasiona aprender nuevas tecnologías y aplicarlas para resolver problemas reales. Disfruto construir desde cero, tanto en el frontend como explorando bases de datos y lógica backend.</p>
-      <p data-i18n="about_p3">Actualmente profundizo mis conocimientos en <strong>Inteligencia Artificial, testing de prompts y automatización</strong>. Busco siempre proyectos que me reten a crecer.</p>
-
-      <div class="about-stats-row">
-        <div class="about-stat"><span>6+</span><span data-i18n="about_stat1">Tecnologías</span></div>
-        <div class="about-stat"><span>5+</span><span data-i18n="about_stat2">Proyectos</span></div>
-        <div class="about-stat"><span>100%</span><span data-i18n="about_stat3">Dedicación</span></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Fila info cards -->
-  <div class="about-cards-row reveal">
-    <div class="perfil-info-card"><div class="perfil-info-label">📍 UBICACIÓN</div><div class="perfil-info-value">Floridablanca, Santander</div></div>
-    <div class="perfil-info-card"><div class="perfil-info-label">🎓 FORMACIÓN</div><div class="perfil-info-value">Técnico en Programación Avanzada</div></div>
-    <div class="perfil-info-card"><div class="perfil-info-label">🌐 IDIOMAS</div><div class="perfil-info-value">ES (nativo) / EN (A2)</div></div>
-    <div class="perfil-info-card"><div class="perfil-info-label">🛠️ STACK</div><div class="perfil-info-value">Python · JS · HTML · SQL · Git</div></div>
-  </div>
-
-  <!-- Fila competencias + intereses + CV -->
-  <div class="about-bottom-row reveal">
-    <div class="perfil-competencias-card">
-      <div class="perfil-info-label">⚡ COMPETENCIAS</div>
-      <div class="perfil-competencias">
-        <span class="comp-tag">Liderazgo</span><span class="comp-tag">Empatía</span>
-        <span class="comp-tag">Disciplina</span><span class="comp-tag">Adaptabilidad</span>
-        <span class="comp-tag">Proactividad</span><span class="comp-tag">Comunicación</span>
-        
-      </div>
-    </div>
-
-    <div class="about-right-col">
-      <div class="perfil-intereses-card">
-        <div class="perfil-info-label">🎯 INTERESES</div>
-        <div class="perfil-intereses-grid">
-          <div class="interes-item"><span>📷</span><div><div class="interes-name">fotografia</div><div class="interes-sub"> Casual / Diseño</div></div></div>
-          <div class="interes-item"><span>🎵</span><div><div class="interes-name">Música</div><div class="interes-sub">Pop / baladas</div></div></div>
-          <div class="interes-item"><span>📚</span><div><div class="interes-name">Lectura</div><div class="interes-sub">romance / Fantasía /</div></div></div>
-          <div class="interes-item"><span>🚀</span><div><div class="interes-name">Tecnología</div><div class="interes-sub">IA / Desarrollo web</div></div></div>
-          <div class="interes-item"><span>🌱</span><div><div class="interes-name">Agropecuaria</div><div class="interes-sub">pecuaria / agricultura </div></div></div>
-           <div class="interes-item"><span>📈</span><div><div class="interes-name">Emprendimiento</div><div class="interes-sub">Innovación / Administración </div></div></div>
-
+  <div class="bento-about reveal">
+    <!-- Tarjeta principal de biografía (sin foto duplicada) -->
+    <div class="bento-card bento-bio">
+      <div class="bio-header-clean">
+        <div class="bio-badge-icon">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </div>
+        <div class="bio-title-wrap">
+          <h3 class="about-fullname">Heiling Gisselle León Bernal</h3>
+          <div class="about-subrole">
+            <span data-i18n="about_subrole">Desarrolladora de Software en Formación</span> ·
+            <span class="perfil-disponible" data-i18n="about_available">En línea y disponible</span>
+          </div>
+        </div>
+        <div class="bio-social-pills">
+          <a href="https://github.com/heiling-18" target="_blank" rel="noopener" class="social-pill">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11.05 11.05 0 0 1 5.78 0c2.2-1.49 3.16-1.18 3.16-1.18.63 1.59.24 2.76.12 3.05.74.81 1.18 1.83 1.18 3.09 0 4.41-2.69 5.38-5.26 5.67.41.36.78 1.06.78 2.14 0 1.55-.01 2.79-.01 3.17 0 .31.21.68.8.56A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+            <span>github.com/heiling-18</span>
+          </a>
+          <a href="mailto:heilinggisselleleonbernal@gmail.com" class="social-pill">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            <span>Correo directo</span>
+          </a>
         </div>
       </div>
 
-      <a href="cv.pdf" download="CV_Heiling_Leon.pdf" class="perfil-cv-card">
+      <div class="bio-paragraphs">
+        <p data-i18n="about_p1">
+          Soy <strong>Heiling Gisselle León Bernal</strong>, desarrolladora de software en formación en <strong>Campuslands</strong>, con base técnica en <strong>Sistemas Teleinformáticos (SENA)</strong> y <strong>Producción Agropecuaria (UIS)</strong>. Esta combinación me permite entender problemas operativos reales del sector productivo y comercial y convertirlos en soluciones tecnológicas prácticas.
+        </p>
+        <p data-i18n="about_p2">
+          Me destaco por construir aplicaciones completas desde cero: desde interfaces web interactivas con <strong>Next.js, TypeScript, HTML, CSS y JavaScript</strong> hasta sistemas backend estructurados con <strong>Java (POO, MVC, DAO), Python (FastAPI) y bases de datos MySQL / Supabase / MongoDB</strong>.
+        </p>
+        <p data-i18n="about_p3">
+          Además, integro <strong>sistemas de visión por computadora e IA (YOLOv8, GPT-4o, FiftyOne) y automatización de flujos con n8n</strong> bajo metodologías ágiles como <strong>SCRUM</strong> y control de versiones colaborativo con <strong>GitFlow</strong>.
+        </p>
+      </div>
+
+      <div class="about-stats-row">
+        <div class="about-stat">
+          <span>6+</span>
+          <span data-i18n="about_stat1">Proyectos Destacados</span>
+        </div>
+        <div class="about-stat">
+          <span>8+</span>
+          <span data-i18n="about_stat2">Tecnologías Clave</span>
+        </div>
+        <div class="about-stat">
+          <span>SCRUM</span>
+          <span data-i18n="about_stat3">Trabajo Ágil en Equipo</span>
+        </div>
+        <div class="about-stat">
+          <span>100%</span>
+          <span data-i18n="about_stat4">Compromiso y Disciplina</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Columna lateral con CV y Competencias -->
+    <div class="bento-side">
+      <div class="bento-card perfil-competencias-card">
+        <div class="perfil-info-label">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          <span data-i18n="comp_label">COMPETENCIAS PROFESIONALES</span>
+        </div>
+        <div class="perfil-competencias" id="competencias-list"></div>
+      </div>
+
+      <a href="cv.pdf" download="CV_Heiling_Leon_Bernal.pdf" class="bento-card perfil-cv-card">
         <div class="perfil-cv-left">
-          <span class="perfil-cv-icon">⬇</span>
-          <span class="perfil-cv-text">Descargar CV</span>
+          <span class="perfil-cv-icon">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg>
+          </span>
+          <div>
+            <div class="perfil-cv-text" data-i18n="cv_btn_title">Descargar Currículum Vitae</div>
+            <div class="perfil-cv-sub" data-i18n="cv_btn_sub">Versión actualizada en PDF · Lista para reclutadores</div>
+          </div>
         </div>
         <span class="tag">PDF</span>
       </a>
     </div>
   </div>
 
+  <!-- Fila de tarjetas de datos clave -->
+  <div class="about-cards-row reveal">
+    <div class="perfil-info-card">
+      <div class="perfil-info-label">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span data-i18n="info_loc_label">UBICACIÓN</span>
+      </div>
+      <div class="perfil-info-value" data-i18n="info_loc_val">Floridablanca, Santander, CO</div>
+    </div>
+    <div class="perfil-info-card">
+      <div class="perfil-info-label">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+        <span data-i18n="info_edu_label">FORMACIÓN ACTUAL</span>
+      </div>
+      <div class="perfil-info-value" data-i18n="info_edu_val">Programación Avanzada · Campuslands</div>
+    </div>
+    <div class="perfil-info-card">
+      <div class="perfil-info-label">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        <span data-i18n="info_lang_label">IDIOMAS</span>
+      </div>
+      <div class="perfil-info-value" data-i18n="info_lang_val">Español (Nativo) · Inglés (B1.3)</div>
+    </div>
+    <div class="perfil-info-card">
+      <div class="perfil-info-label">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        <span data-i18n="info_stack_label">ENFOQUE PRINCIPAL</span>
+      </div>
+      <div class="perfil-info-value">Java · Python · Next.js · SQL · IA</div>
+    </div>
+  </div>
+
+  <!-- Intereses personales con iconos SVG -->
+  <div class="bento-card perfil-intereses-card reveal">
+    <div class="perfil-info-label">
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+      <span data-i18n="interests_label">INTERESES QUE INSPIRAN MIS PROYECTOS</span>
+    </div>
+    <div class="perfil-intereses-grid" id="intereses-grid"></div>
+  </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- HABILIDADES -->
+<!-- 02 — QUÉ OFREZCO / SERVICIOS (MI SUPERPODER) -->
+<section id="servicios">
+  <div class="reveal">
+    <div class="section-label" data-i18n="services_label">02 — Mi Superpoder</div>
+    <h2 class="section-title" data-i18n="services_title">¿Cómo puedo aportar valor a tu equipo?</h2>
+    <p class="section-subtitle" data-i18n="services_subtitle">
+      Más allá de escribir código, diseño soluciones orientadas a resolver cuellos de botella operativos, digitalizar negocios y garantizar calidad técnica.
+    </p>
+  </div>
+
+  <div class="services-grid reveal" id="services-grid"></div>
+</section>
+
+<div class="divider"></div>
+
+<!-- 03 — HABILIDADES / ECOSISTEMA INTERACTIVO -->
 <section id="habilidades">
   <div class="reveal">
-    <div class="section-label" data-i18n="skills_label">02 — Habilidades</div>
-    <h2 class="section-title" data-i18n="skills_title">Stack tecnológico</h2>
+    <div class="section-label" data-i18n="skills_label">03 — Habilidades Técnicas</div>
+    <h2 class="section-title" data-i18n="skills_title">Stack tecnológico y herramientas</h2>
+    <p class="section-subtitle" data-i18n="skills_subtitle">
+      Haz clic o pasa el cursor sobre cada tecnología para explorar cómo la aplico en arquitectura real, qué herramientas domino y en qué proyectos la implementé.
+    </p>
   </div>
-  <div class="skills-grid reveal">
-    <div class="skill-card"><div class="skill-icon">🌐</div><div class="skill-name">HTML</div><div class="skill-bar-wrap"><div class="skill-bar" data-width="90"></div></div></div>
-    <div class="skill-card"><div class="skill-icon">🎨</div><div class="skill-name">CSS</div><div class="skill-bar-wrap"><div class="skill-bar" data-width="85"></div></div></div>
-    <div class="skill-card"><div class="skill-icon">⚡</div><div class="skill-name">JavaScript</div><div class="skill-bar-wrap"><div class="skill-bar" data-width="75"></div></div></div>
-    <div class="skill-card"><div class="skill-icon">🐍</div><div class="skill-name">Python</div><div class="skill-bar-wrap"><div class="skill-bar" data-width="70"></div></div></div>
-    <div class="skill-card"><div class="skill-icon">🗄️</div><div class="skill-name">SQL</div><div class="skill-bar-wrap"><div class="skill-bar" data-width="72"></div></div></div>
-    <div class="skill-card"><div class="skill-icon">🔧</div><div class="skill-name">Git</div><div class="skill-bar-wrap"><div class="skill-bar" data-width="78"></div></div></div>
+
+  <!-- Panel interactivo: Tarjetas Spotlight + Consola de Inspección en Vivo -->
+  <div class="stack-interactive-layout reveal">
+    <div class="stack-cards-grid" id="stack-cards-grid">
+      <!-- Renderizado por js/i18n.js con SVGs vectoriales e interacción en tiempo real -->
+    </div>
+
+    <aside class="stack-inspector" id="stack-inspector" aria-live="polite">
+      <!-- Detalle interactivo actualizado al seleccionar/pasar por una tecnología -->
+    </aside>
+  </div>
+
+  <!-- Cinta infinita (Marquee) de herramientas y tecnologías con SVGs -->
+  <div class="tech-marquee-wrap reveal" aria-hidden="true">
+    <div class="tech-marquee-track">
+      <div class="marquee-pill"><span class="m-dot"></span>Java 21 · OOP · Streams</div>
+      <div class="marquee-pill"><span class="m-dot"></span>Arquitectura MVC + DAO</div>
+      <div class="marquee-pill"><span class="m-dot"></span>Next.js App Router</div>
+      <div class="marquee-pill"><span class="m-dot"></span>TypeScript &amp; ES6+</div>
+      <div class="marquee-pill"><span class="m-dot"></span>Python · FastAPI · FiftyOne</div>
+      <div class="marquee-pill"><span class="m-dot"></span>YOLOv8 &amp; OpenAI GPT-4o</div>
+      <div class="marquee-pill"><span class="m-dot"></span>MySQL Triggers &amp; Stored Functions</div>
+      <div class="marquee-pill"><span class="m-dot"></span>Supabase &amp; MongoDB</div>
+      <div class="marquee-pill"><span class="m-dot"></span>n8n Workflow Automation</div>
+      <div class="marquee-pill"><span class="m-dot"></span>Git · GitFlow · SCRUM · Docker</div>
+      <!-- Duplicado para loop continuo -->
+      <div class="marquee-pill"><span class="m-dot"></span>Java 21 · OOP · Streams</div>
+      <div class="marquee-pill"><span class="m-dot"></span>Arquitectura MVC + DAO</div>
+      <div class="marquee-pill"><span class="m-dot"></span>Next.js App Router</div>
+      <div class="marquee-pill"><span class="m-dot"></span>TypeScript &amp; ES6+</div>
+      <div class="marquee-pill"><span class="m-dot"></span>Python · FastAPI · FiftyOne</div>
+      <div class="marquee-pill"><span class="m-dot"></span>YOLOv8 &amp; OpenAI GPT-4o</div>
+      <div class="marquee-pill"><span class="m-dot"></span>MySQL Triggers &amp; Stored Functions</div>
+      <div class="marquee-pill"><span class="m-dot"></span>Supabase &amp; MongoDB</div>
+      <div class="marquee-pill"><span class="m-dot"></span>n8n Workflow Automation</div>
+      <div class="marquee-pill"><span class="m-dot"></span>Git · GitFlow · SCRUM · Docker</div>
+    </div>
   </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- PROYECTOS -->
+<!-- 04 — PROYECTOS DESTACADOS -->
 <section id="proyectos">
   <div class="reveal">
-    <div class="section-label" data-i18n="projects_label">03 — Proyectos</div>
-    <h2 class="section-title" data-i18n="projects_title">Lo que he construido</h2>
+    <div class="section-label" data-i18n="projects_label">04 — Portafolio de Proyectos</div>
+    <div class="projects-header-row">
+      <div>
+        <h2 class="section-title" data-i18n="projects_title">Mis mejores trabajos</h2>
+        <p class="section-subtitle" data-i18n="projects_subtitle">
+          Selección de 6 proyectos clave con contexto real, mi rol técnico y los resultados obtenidos.
+        </p>
+      </div>
+      <div class="project-filters" id="project-filters">
+        <button class="filter-btn active" data-filter="all" onclick="filterProjects('all')" data-i18n="filter_all">Todos (6)</button>
+        <button class="filter-btn" data-filter="web" onclick="filterProjects('web')" data-i18n="filter_web">Full Stack &amp; Web</button>
+        <button class="filter-btn" data-filter="backend" onclick="filterProjects('backend')" data-i18n="filter_backend">Backend &amp; SQL</button>
+        <button class="filter-btn" data-filter="ai" onclick="filterProjects('ai')" data-i18n="filter_ai">IA &amp; Automatización</button>
+      </div>
+    </div>
   </div>
-  <div class="projects-grid reveal">
 
-    <!-- Hotel El Rincon Del Carmen -->
-    <div class="project-card">
-      <div class="project-top">
-        <div class="project-icon">🏨</div>
-        <div class="project-links">
-          <a href="https://github.com/heiling-18/proyecto_Java_script_Hotel" target="_blank" class="project-link" title="GitHub">↗</a>
-        </div>
-      </div>
-      <div class="project-title">Hotel El Rincón del Carmen</div>
-      <div class="project-desc">Sitio web interactivo para un hotel desarrollado con JavaScript. Incluye sistema de reservas, catálogo de habitaciones y formularios de contacto con validación en el frontend.</div>
-      <div class="project-tags"><span class="tag">JavaScript</span><span class="tag">HTML</span><span class="tag">CSS</span></div>
-    </div>
-
-    <!-- Campus Shop -->
-    <div class="project-card">
-      <div class="project-top">
-        <div class="project-icon">🛍️</div>
-        <div class="project-links">
-          <a href="https://github.com/heiling-18/campus-Shop" target="_blank" class="project-link" title="GitHub">↗</a>
-        </div>
-      </div>
-      <div class="project-title">Campus Shop</div>
-      <div class="project-desc">Tienda en línea para estudiantes universitarios con catálogo de productos (tecnología, estudio, comida, ropa), carrito de compras, checkout y gestión de perfil. Desarrollada en HTML y CSS puro con múltiples vistas.</div>
-      <div class="project-tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">UI/UX</span></div>
-    </div>
-
-    <!-- Proyecto Python -->
-    <div class="project-card">
-      <div class="project-top">
-        <div class="project-icon">🐍</div>
-        <div class="project-links">
-          <a href="https://github.com/heiling-18/Proyecto_Python_LeonHeiling_SierraDaniel" target="_blank" class="project-link" title="GitHub">↗</a>
-        </div>
-      </div>
-      <div class="project-title">Proyecto Python</div>
-      <div class="project-desc">Aplicación desarrollada en Python en colaboración con Daniel Sierra. Proyecto académico que aplica fundamentos de programación, estructuras de datos y lógica de negocio.</div>
-      <div class="project-tags"><span class="tag">Python</span><span class="tag">Colaborativo</span></div>
-    </div>
-
-    <!-- API Colombia -->
-    <div class="project-card">
-      <div class="project-top">
-        <div class="project-icon">🇨🇴</div>
-        <div class="project-links">
-          <a href="https://github.com/heiling-18/heiling-leon-api-colombia" target="_blank" class="project-link" title="GitHub">↗</a>
-        </div>
-      </div>
-      <div class="project-title">API Colombia</div>
-      <div class="project-desc">Proyecto de integración y consumo de API con datos de Colombia. Consulta y visualización de información del país mediante llamadas a servicios externos.</div>
-      <div class="project-tags"><span class="tag">API REST</span><span class="tag">JavaScript</span><span class="tag">Datos</span></div>
-    </div>
-
-    <!-- Chatbot Educativo -->
-    <div class="project-card">
-      <div class="project-top">
-        <div class="project-icon">🤖</div>
-        <div class="project-links">
-          <a href="https://github.com/heiling-18/promptfoo-gemini-" target="_blank" class="project-link" title="GitHub">↗</a>
-        </div>
-      </div>
-      <div class="project-title">Chatbot Educativo — Prompt Testing</div>
-      <div class="project-desc">Sistema de evaluación automatizada de prompts para un chatbot educativo usando Promptfoo y Gemini. Incluye casos PASS/FAIL, assertions y análisis del comportamiento del modelo.</div>
-      <div class="project-tags"><span class="tag">Promptfoo</span><span class="tag">Gemini AI</span><span class="tag">YAML</span><span class="tag">QA</span></div>
-    </div>
-
-  </div>
+  <div class="projects-grid reveal" id="projects-grid"></div>
 </section>
 
 <div class="divider"></div>
 
-<!-- EDUCACION -->
+<!-- 05 — EDUCACIÓN Y TRAYECTORIA -->
 <section id="educacion">
   <div class="reveal">
-    <div class="section-label" data-i18n="edu_label">04 — Educación</div>
-    <h2 class="section-title" data-i18n="edu_title">Mi trayectoria</h2>
+    <div class="section-label" data-i18n="edu_label">05 — Formación y Experiencia</div>
+    <h2 class="section-title" data-i18n="edu_title">Mi trayectoria académica y técnica</h2>
   </div>
-  <div class="edu-timeline reveal" id="edu-timeline">
-    <!-- Filled by i18n.js -->
-    <div class="edu-item">
-      <div class="edu-dot">⚙️</div>
-      <div class="edu-content">
-        <div class="edu-year">2026</div>
-        <div class="edu-title">Desarrollo backend</div>
-        <div class="edu-place">Node js · APIs REST · Autenticación </div>
-      </div>
-    </div>
-    <div class="edu-item">
-      <div class="edu-dot">🤖</div>
-      <div class="edu-content">
-        <div class="edu-year">2026</div>
-        <div class="edu-title">Inteligencia Artificial I</div>
-        <div class="edu-place">Prompt Testing · Gemini · Promptfoo · QA aplicado a IA</div>
-      </div>
-    </div>
-    <div class="edu-item">
-      <div class="edu-dot">🌐</div>
-      <div class="edu-content">
-        <div class="edu-year">2026</div>
-        <div class="edu-title">Desarrollo Web Frontend</div>
-        <div class="edu-place">HTML · CSS · JavaScript · Proyectos prácticos</div>
-      </div>
-    </div>
-    <div class="edu-item">
-      <div class="edu-dot">🐍</div>
-      <div class="edu-content">
-        <div class="edu-year">2026</div>
-        <div class="edu-title">Python & Bases de Datos</div>
-        <div class="edu-place">Python · SQL · Gestión de datos · Proyectos colaborativos</div>
-      </div>
-    </div>
-    <div class="edu-item">
-      <div class="edu-dot">⚡</div>
-      <div class="edu-content">
-        <div class="edu-year">2026</div>
-        <div class="edu-title">Fundamentos de Programación</div>
-        <div class="edu-place">Lógica · Algoritmos · Estructuras de datos</div>
-      </div>
-    </div>
-  </div>
+  <div class="edu-timeline reveal" id="edu-timeline"></div>
 </section>
 
 <div class="divider"></div>
 
-<!-- CONTACTO -->
+<!-- 06 — CONTACTO -->
 <section id="contacto">
   <div class="reveal">
-    <div class="section-label" data-i18n="contact_label">05 — Contacto</div>
-    <h2 class="section-title" data-i18n="contact_title">Hablemos</h2>
+    <div class="section-label" data-i18n="contact_label">06 — Contacto</div>
+    <h2 class="section-title" data-i18n="contact_title">¿Construimos algo juntos?</h2>
   </div>
+
   <div class="contact-grid reveal">
     <div class="contact-info">
-      <h3 data-i18n="contact_h3">¿Tienes un proyecto en mente?</h3>
-      <p data-i18n="contact_p">Estoy disponible para colaboraciones, prácticas o simplemente para conectar. No dudes en escribirme.</p>
+      <h3 data-i18n="contact_h3">Lista para aportar en tu próximo proyecto o equipo</h3>
+      <p data-i18n="contact_p">
+        Estoy disponible para prácticas empresariales, posiciones como Desarrolladora Junior (Frontend, Backend o Full Stack) y proyectos de automatización. Contáctame por tu canal preferido:
+      </p>
+
       <div class="contact-links">
-        <a href="https://github.com/heiling-18" target="_blank" class="contact-link">
-          <div class="contact-link-icon">🐙</div> github.com/heiling-18
-        </a>
-        <a href="mailto:heilinggisselleleonbernal@gmail.com" class="contact-link">
-          <div class="contact-link-icon">📧</div> heilinggisselleleonbernal@gmail.com
-        </a>
-       <a href="tel:3107954197" class="contact-link">
-          <div class="contact-link-icon">📞</div> 3107954197
+        <a href="https://wa.me/573107954197?text=Hola%20Heiling,%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20conversar%20contigo." target="_blank" rel="noopener" class="contact-link">
+          <div class="contact-link-icon">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          </div>
+          <div>
+            <div class="contact-link-label">WhatsApp Directo</div>
+            <div class="contact-link-val">+57 310 795 4197</div>
+          </div>
+          <span class="contact-link-arrow">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </span>
         </a>
 
+        <a href="mailto:heilinggisselleleonbernal@gmail.com" class="contact-link">
+          <div class="contact-link-icon">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          </div>
+          <div>
+            <div class="contact-link-label">Correo Electrónico</div>
+            <div class="contact-link-val">heilinggisselleleonbernal@gmail.com</div>
+          </div>
+          <span class="contact-link-arrow">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </span>
+        </a>
+
+        <a href="https://github.com/heiling-18" target="_blank" rel="noopener" class="contact-link">
+          <div class="contact-link-icon">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11.05 11.05 0 0 1 5.78 0c2.2-1.49 3.16-1.18 3.16-1.18.63 1.59.24 2.76.12 3.05.74.81 1.18 1.83 1.18 3.09 0 4.41-2.69 5.38-5.26 5.67.41.36.78 1.06.78 2.14 0 1.55-.01 2.79-.01 3.17 0 .31.21.68.8.56A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+          </div>
+          <div>
+            <div class="contact-link-label">GitHub Oficial</div>
+            <div class="contact-link-val">github.com/heiling-18</div>
+          </div>
+          <span class="contact-link-arrow">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </span>
+        </a>
+
+        <a href="cv.pdf" download="CV_Heiling_Leon_Bernal.pdf" class="contact-link">
+          <div class="contact-link-icon">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg>
+          </div>
+          <div>
+            <div class="contact-link-label" data-i18n="contact_cv_label">Currículum Vitae</div>
+            <div class="contact-link-val" data-i18n="contact_cv_val">Descargar CV en formato PDF</div>
+          </div>
+          <span class="contact-link-arrow">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          </span>
+        </a>
       </div>
     </div>
+
     <form class="contact-form" onsubmit="handleSubmit(event)">
+      <div class="form-header" data-i18n="form_header">Envíame un mensaje directo</div>
       <div class="form-group">
-        <label data-i18n="form_name">Nombre</label>
-        <input type="text" data-i18n="form_ph_name" placeholder="Tu nombre" required>
+        <label for="contact-name" data-i18n="form_name">Nombre</label>
+        <input type="text" id="contact-name" name="name" data-i18n="form_ph_name" placeholder="Tu nombre o empresa" required>
       </div>
       <div class="form-group">
-        <label data-i18n="form_email">Email</label>
-        <input type="email" data-i18n="form_ph_email" placeholder="tu@email.com" required>
+        <label for="contact-email" data-i18n="form_email">Correo de contacto</label>
+        <input type="email" id="contact-email" name="email" data-i18n="form_ph_email" placeholder="tu@empresa.com" required>
       </div>
       <div class="form-group">
-        <label data-i18n="form_msg">Mensaje</label>
-        <textarea data-i18n="form_ph_msg" placeholder="Cuéntame sobre tu proyecto..." required></textarea>
+        <label for="contact-msg" data-i18n="form_msg">Mensaje</label>
+        <textarea id="contact-msg" name="message" data-i18n="form_ph_msg" placeholder="Cuéntame sobre la vacante, práctica o proyecto..." required></textarea>
       </div>
-      <button type="submit" class="btn-primary" data-i18n="form_btn">Enviar mensaje →</button>
+      <div class="form-actions">
+        <button type="submit" class="btn-primary form-submit-btn">
+          <span data-i18n="form_btn">Enviar mensaje directo</span>
+          <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        </button>
+      </div>
+      <p class="form-note" data-i18n="form_note">
+        Al enviar, se abrirá WhatsApp con tu mensaje estructurado para que recibas respuesta inmediata.
+      </p>
     </form>
   </div>
 </section>
 
 <footer>
-  <p><span data-i18n="footer">Diseñado y construido por</span> <span>Heiling Leon Bernal</span> · 2025</p>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="nav-logo"><span class="logo-bracket">&lt;</span>HL<span class="logo-dot">.dev</span><span class="logo-bracket">/&gt;</span></span>
+      <p><span data-i18n="footer">Diseñado y desarrollado por</span> <strong>Heiling Gisselle León Bernal</strong> · 2026</p>
+    </div>
+    <div class="footer-links">
+      <a href="https://github.com/heiling-18" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://wa.me/573107954197" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="mailto:heilinggisselleleonbernal@gmail.com">Email</a>
+      <a href="cv.pdf" download="CV_Heiling_Leon_Bernal.pdf">CV PDF</a>
+    </div>
+  </div>
 </footer>
 
-<!-- SCRIPTS (order matters) -->
+<!-- SCRIPTS -->
 <script src="js/theme.js"></script>
 <script src="js/i18n.js"></script>
 <script src="js/particles.js"></script>

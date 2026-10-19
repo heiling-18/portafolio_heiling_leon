@@ -140,12 +140,12 @@ const translations = {
       {
         id: 'java',
         icon: 'java',
-        name: 'Java (POO · MVC · DAO)',
+        name: 'Java & Spring Boot 3',
         category: 'Backend & Arquitectura',
         level: 'Avanzado en Formación',
-        desc: 'Desarrollo de aplicaciones transaccionales aplicando los 4 pilares de POO, separación de capas MVC, patrón DAO, conexión JDBC con Singleton, manejo jerárquico de excepciones y reportes con Java Streams.',
-        tools: ['Java 21', 'Patrón MVC + DAO', 'Singleton', 'Java Streams & Lambdas', 'Maven', 'JDBC MySQL'],
-        projects: ['CrediYa S.A.S. — Sistema de Préstamos y Cobranzas']
+        desc: 'Desarrollo de APIs REST y sistemas transaccionales con Spring Boot 3, seguridad JWT, POO, arquitectura MVC/DAO, motores de reglas de negocio e integración con IA y MySQL.',
+        tools: ['Java 17/21', 'Spring Boot 3', 'Spring Security JWT', 'Patrón MVC + DAO', 'Java Streams', 'Maven · MySQL'],
+        projects: ['Campusland Ops — Gestión Operativa & IA', 'CrediYa S.A.S. — Sistema de Préstamos y Cobranzas']
       },
       {
         id: 'nextjs',
@@ -165,7 +165,7 @@ const translations = {
         level: 'Dominio Sólido',
         desc: 'Construcción de plataformas web dinámicas sin dependencia de librerías pesadas: encapsulación con Custom Elements (Web Components), consumo de APIs REST con Fetch/Async-Await y persistencia en LocalStorage.',
         tools: ['ES6+ Modules', 'Web Components', 'DOM Manipulation', 'Fetch / REST APIs', 'LocalStorage CRUD'],
-        projects: ['Hotel El Rincón del Carmen — Reservas & Admin']
+        projects: ['Campusland Ops — Workspace Modular', 'Hotel El Rincón del Carmen — Reservas & Admin']
       },
       {
         id: 'sql',
@@ -175,7 +175,7 @@ const translations = {
         level: 'Modelado & Automatización',
         desc: 'Diseño de modelos entidad-relación normalizados, integridad referencial y programación directa en el motor de base de datos para cálculos automáticos de facturación, IVA y auditoría.',
         tools: ['MySQL 8+', 'Supabase PostgreSQL', 'Triggers', 'Stored Functions', 'Vistas Analíticas', 'Modelado ER'],
-        projects: ['Eventos Premier S.A.S.', 'CrediYa S.A.S.', "DYM'S POS"]
+        projects: ['Campusland Ops', 'Eventos Premier S.A.S.', 'CrediYa S.A.S.', "DYM'S POS"]
       },
       {
         id: 'ai',
@@ -183,9 +183,9 @@ const translations = {
         name: 'IA · Visión Computacional · n8n',
         category: 'IA & Automatización',
         level: 'Agentes & Workflows',
-        desc: 'Integración de pipelines de vigilancia inteligente con YOLOv8, GPT-4o y gestión de datasets de video por frame en FiftyOne, junto con automatización de flujos y máquinas de estados en n8n y Docker.',
-        tools: ['FiftyOne Datasets', 'YOLOv8 & OpenCV', 'OpenAI GPT-4o', 'n8n Workflows', 'Telegram Bot API', 'Docker'],
-        projects: ['Copiloto Sally 360 — Vigilancia Inteligente', 'TutorBot — Bot de Asesorías en Telegram']
+        desc: 'Integración de motores de triaje y recomendación con OpenAI GPT-4o, vigilancia inteligente con YOLOv8 y FiftyOne, junto con automatización de flujos y máquinas de estados en n8n y Docker.',
+        tools: ['OpenAI GPT-4o / 4o-mini', 'FiftyOne Datasets', 'YOLOv8 & OpenCV', 'n8n Workflows', 'Telegram Bot API', 'Docker'],
+        projects: ['Campusland Ops — Copiloto & Triaje IA', 'Copiloto Sally 360 — Vigilancia Inteligente', 'TutorBot — Bot de Asesorías en Telegram']
       },
       {
         id: 'python',
@@ -215,14 +215,14 @@ const translations = {
         level: 'Flujo Profesional',
         desc: 'Trabajo colaborativo bajo marco ágil SCRUM (Sprints, Daily, Review, Backlog) y gestión de ramas estructurada con GitFlow (main, develop, feature branches y Pull Requests).',
         tools: ['Git & GitHub', 'GitFlow Branching', 'SCRUM Framework', 'Docker', 'Documentación Técnica'],
-        projects: ['Copiloto Sally 360', 'TaskFlow CLI', 'CrediYa S.A.S.']
+        projects: ['Campusland Ops', 'Copiloto Sally 360', 'TaskFlow CLI', 'CrediYa S.A.S.']
       }
     ],
 
     projects_label: '04 — Portafolio de Proyectos',
     projects_title: 'Mis mejores trabajos',
-    projects_subtitle: 'Selección de 6 proyectos clave con contexto real, mi rol técnico y los resultados obtenidos.',
-    filter_all: 'Todos (6)',
+    projects_subtitle: 'Selección de 7 proyectos clave con contexto real, mi rol técnico y los resultados obtenidos.',
+    filter_all: 'Todos (7)',
     filter_web: 'Full Stack & Web',
     filter_backend: 'Backend & SQL',
     filter_ai: 'IA & Automatización',
@@ -231,6 +231,22 @@ const translations = {
     impact_prefix: 'Logro clave:',
 
     projects: [
+      {
+        id: 'campusland-ops',
+        category: 'backend',
+        previewClass: 'preview-java',
+        badge: 'Demo en Vivo · Spring Boot 3 + IA',
+        isLive: true,
+        icon: 'cpu',
+        snippet: 'Spring Boot 3 · JWT · GPT-4o-mini · MySQL',
+        role: 'Rol: Líder de Arquitectura Backend, Motor de Reglas e IA',
+        title: 'Campusland Ops — Gestión Operativa e Inteligencia de Espacios',
+        desc: 'Plataforma centralizada para administrar salones, reservas sin solapamiento, inventario técnico por serial, préstamos de equipos para Campers y triaje inteligente de incidencias con IA (bloqueo preventivo y reubicación automática de grupos).',
+        impact: 'Validación estricta de aforo (>=50% ocupación), control de respuestas del LLM y trazabilidad total multi-rol (Admin, Trainer, Soporte y Camper).',
+        tags: ['Java 17+', 'Spring Boot 3', 'OpenAI GPT-4o-mini', 'JWT Security', 'MySQL', 'Tailwind CSS'],
+        demoUrl: 'demos/campusland-ops/index.html',
+        repoUrl: 'https://github.com/heiling-18/campusland-ops'
+      },
       {
         id: 'dyms-pos',
         category: 'web',
@@ -498,12 +514,12 @@ const translations = {
       {
         id: 'java',
         icon: 'java',
-        name: 'Java (OOP · MVC · DAO)',
+        name: 'Java & Spring Boot 3',
         category: 'Backend & Architecture',
         level: 'Advanced Training',
-        desc: 'Developing transactional applications applying the 4 pillars of OOP, MVC layer separation, DAO pattern, Singleton JDBC connections, hierarchical exception handling, and Java Streams.',
-        tools: ['Java 21', 'MVC + DAO Pattern', 'Singleton', 'Java Streams & Lambdas', 'Maven', 'MySQL JDBC'],
-        projects: ['CrediYa S.A.S. — Loan & Collections System']
+        desc: 'Developing REST APIs and transactional applications with Spring Boot 3, JWT security, OOP, MVC/DAO patterns, business rule engines, and AI & MySQL integration.',
+        tools: ['Java 17/21', 'Spring Boot 3', 'Spring Security JWT', 'MVC + DAO Pattern', 'Java Streams', 'Maven · MySQL'],
+        projects: ['Campusland Ops — Operational Management & AI', 'CrediYa S.A.S. — Loan & Collections System']
       },
       {
         id: 'nextjs',
@@ -523,7 +539,7 @@ const translations = {
         level: 'Strong Proficiency',
         desc: 'Creating modular web platforms using native Custom Elements (Web Components), REST API consumption with Fetch/Async-Await, dynamic DOM state, and LocalStorage persistence.',
         tools: ['ES6+ Modules', 'Web Components', 'DOM Manipulation', 'Fetch / REST APIs', 'LocalStorage CRUD'],
-        projects: ['Hotel El Rincón del Carmen — Booking & Admin']
+        projects: ['Campusland Ops — Modular Workspace', 'Hotel El Rincón del Carmen — Booking & Admin']
       },
       {
         id: 'sql',
@@ -533,7 +549,7 @@ const translations = {
         level: 'Modeling & Automation',
         desc: 'Designing normalized Entity-Relationship schemas, enforcing referential integrity, and programming database-level automation for billing, VAT calculations, and price auditing.',
         tools: ['MySQL 8+', 'Supabase PostgreSQL', 'Triggers', 'Stored Functions', 'Analytical Views', 'ER Modeling'],
-        projects: ['Eventos Premier S.A.S.', 'CrediYa S.A.S.', "DYM'S POS"]
+        projects: ['Campusland Ops', 'Eventos Premier S.A.S.', 'CrediYa S.A.S.', "DYM'S POS"]
       },
       {
         id: 'ai',
@@ -541,9 +557,9 @@ const translations = {
         name: 'AI · Computer Vision · n8n',
         category: 'AI & Automation',
         level: 'Agents & Workflows',
-        desc: 'Integrating intelligent transport surveillance pipelines with YOLOv8, GPT-4o, and frame-level video dataset management in FiftyOne, alongside stateful workflows in n8n and Docker.',
-        tools: ['FiftyOne Datasets', 'YOLOv8 & OpenCV', 'OpenAI GPT-4o', 'n8n Workflows', 'Telegram Bot API', 'Docker'],
-        projects: ['Copiloto Sally 360 — Intelligent Surveillance', 'TutorBot — Telegram Academic Bot']
+        desc: 'Integrating AI triage and recommendation engines with OpenAI GPT-4o, intelligent transport surveillance with YOLOv8 & FiftyOne, alongside stateful workflows in n8n and Docker.',
+        tools: ['OpenAI GPT-4o / 4o-mini', 'FiftyOne Datasets', 'YOLOv8 & OpenCV', 'n8n Workflows', 'Telegram Bot API', 'Docker'],
+        projects: ['Campusland Ops — AI Triage & Copilot', 'Copiloto Sally 360 — Intelligent Surveillance', 'TutorBot — Telegram Academic Bot']
       },
       {
         id: 'python',
@@ -573,14 +589,14 @@ const translations = {
         level: 'Professional Workflow',
         desc: 'Collaborating in agile SCRUM teams (Sprints, Daily Standups, Reviews, Backlogs) with structured GitFlow branching (main, develop, feature branches, Pull Requests).',
         tools: ['Git & GitHub', 'GitFlow Branching', 'SCRUM Framework', 'Docker', 'Technical Docs'],
-        projects: ['Copiloto Sally 360', 'TaskFlow CLI', 'CrediYa S.A.S.']
+        projects: ['Campusland Ops', 'Copiloto Sally 360', 'TaskFlow CLI', 'CrediYa S.A.S.']
       }
     ],
 
     projects_label: '04 — Project Portfolio',
     projects_title: 'Featured work',
-    projects_subtitle: 'A curated selection of 6 key projects including context, my technical role, and measurable outcomes.',
-    filter_all: 'All (6)',
+    projects_subtitle: 'A curated selection of 7 key projects including context, my technical role, and measurable outcomes.',
+    filter_all: 'All (7)',
     filter_web: 'Full Stack & Web',
     filter_backend: 'Backend & SQL',
     filter_ai: 'AI & Automation',
@@ -589,6 +605,22 @@ const translations = {
     impact_prefix: 'Key outcome:',
 
     projects: [
+      {
+        id: 'campusland-ops',
+        category: 'backend',
+        previewClass: 'preview-java',
+        badge: 'Live Demo · Spring Boot 3 + AI',
+        isLive: true,
+        icon: 'cpu',
+        snippet: 'Spring Boot 3 · JWT · GPT-4o-mini · MySQL',
+        role: 'Role: Backend Architecture Lead, Business Rules & AI',
+        title: 'Campusland Ops — Operational Management & Space Intelligence',
+        desc: 'Centralized platform to manage campus rooms, conflict-free reservations, serial-tracked IT inventory, individual equipment loans for Campers, and AI-powered incident triage (preventive room locking and automatic group relocation).',
+        impact: 'Strict capacity efficiency validation (>=50% occupancy), LLM output guardrails, and full multi-role traceability (Admin, Trainer, Support & Camper).',
+        tags: ['Java 17+', 'Spring Boot 3', 'OpenAI GPT-4o-mini', 'JWT Security', 'MySQL', 'Tailwind CSS'],
+        demoUrl: 'demos/campusland-ops/index.html',
+        repoUrl: 'https://github.com/heiling-18/campusland-ops'
+      },
       {
         id: 'dyms-pos',
         category: 'web',

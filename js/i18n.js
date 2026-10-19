@@ -221,8 +221,8 @@ const translations = {
 
     projects_label: '04 — Portafolio de Proyectos',
     projects_title: 'Mis mejores trabajos',
-    projects_subtitle: 'Selección de 7 proyectos clave con contexto real, mi rol técnico y los resultados obtenidos.',
-    filter_all: 'Todos (7)',
+    projects_subtitle: 'Selección de 6 proyectos clave con contexto real, mi rol técnico y los resultados obtenidos.',
+    filter_all: 'Todos (6)',
     filter_web: 'Full Stack & Web',
     filter_backend: 'Backend & SQL',
     filter_ai: 'IA & Automatización',
@@ -310,22 +310,6 @@ const translations = {
         tags: ['JavaScript ES6+', 'Web Components', 'HTML5', 'CSS3'],
         demoUrl: 'demos/hotel/index.html',
         repoUrl: 'https://github.com/heiling-18/proyecto_Java_script_Hotel'
-      },
-      {
-        id: 'eventos-premier',
-        category: 'backend',
-        previewClass: 'preview-sql',
-        badge: 'Base de Datos Relacional',
-        isLive: false,
-        icon: 'database',
-        snippet: 'CREATE TRIGGER · FUNCTION · VIEW',
-        role: 'Rol: Diseñadora de Base de Datos SQL',
-        title: 'Eventos Premier S.A.S. — Motor SQL de Reservas y Auditoría',
-        desc: 'Modelé e implementé una base de datos relacional en MySQL para alquiler de salones corporativos, automatizando el cálculo de horas y facturación con IVA, sincronización de estados y auditoría histórica de precios.',
-        impact: 'Automatización en motor SQL mediante Triggers, Funciones Almacenadas y Vistas analíticas de ingresos.',
-        tags: ['MySQL', 'Triggers', 'Stored Functions', 'Vistas SQL', 'Modelado ER'],
-        demoUrl: null,
-        repoUrl: 'https://github.com/heiling-18/Eventos_premier'
       },
       {
         id: 'copiloto-sally-360',
@@ -595,8 +579,8 @@ const translations = {
 
     projects_label: '04 — Project Portfolio',
     projects_title: 'Featured work',
-    projects_subtitle: 'A curated selection of 7 key projects including context, my technical role, and measurable outcomes.',
-    filter_all: 'All (7)',
+    projects_subtitle: 'A curated selection of 6 key projects including context, my technical role, and measurable outcomes.',
+    filter_all: 'All (6)',
     filter_web: 'Full Stack & Web',
     filter_backend: 'Backend & SQL',
     filter_ai: 'AI & Automation',
@@ -684,22 +668,6 @@ const translations = {
         tags: ['JavaScript ES6+', 'Web Components', 'HTML5', 'CSS3'],
         demoUrl: 'demos/hotel/index.html',
         repoUrl: 'https://github.com/heiling-18/proyecto_Java_script_Hotel'
-      },
-      {
-        id: 'eventos-premier',
-        category: 'backend',
-        previewClass: 'preview-sql',
-        badge: 'Relational Database',
-        isLive: false,
-        icon: 'database',
-        snippet: 'CREATE TRIGGER · FUNCTION · VIEW',
-        role: 'Role: SQL Database Designer',
-        title: 'Eventos Premier S.A.S. — Venue Booking & Audit SQL Engine',
-        desc: 'Modeled and implemented a relational MySQL database for corporate venue rentals, automating hourly + VAT billing calculations, room status synchronization, and historical price change auditing.',
-        impact: 'Enforced business rules directly at the database layer via Triggers, Stored Functions, and analytical Views.',
-        tags: ['MySQL', 'Triggers', 'Stored Functions', 'SQL Views', 'ER Modeling'],
-        demoUrl: null,
-        repoUrl: 'https://github.com/heiling-18/Eventos_premier'
       },
       {
         id: 'copiloto-sally-360',
